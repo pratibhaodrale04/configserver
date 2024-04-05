@@ -1,0 +1,38 @@
+server:
+  port: 8001
+spring:
+  application:
+    name: order-service
+
+  cloud:
+    config:
+      enabled: true   
+    bus:
+      enabled: true
+      refresh:
+        enabled: true
+      env:
+        enabled: true  
+    stream:
+      kafka:
+        binder:
+          auto-add-partitions: true
+  kafka:
+    bootstrap-servers:
+    - http://localhost:9092              
+  config:
+    import: 
+      - "configserver:"
+  
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"  
+
+#endpoints:
+#  spring:
+#    cloud:
+#      bus: 
+#        refresh:
+#          enabled: true

@@ -1,0 +1,24 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: config-server
+    
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/pratibhaodrale04/microservices  
+          
+          
+    bus:
+      enabled: true
+  kafka:
+    bootstrap-servers: http://localhost:9092                   
+      
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
+        
